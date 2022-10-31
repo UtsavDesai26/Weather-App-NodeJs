@@ -5,6 +5,7 @@ const forecast = require('./utils/forecast')
 
 var express = require('express')
 var app = express()
+const port = process.env.PORT || 3000
 
 
 // Define paths for Express config 
@@ -100,7 +101,6 @@ app.get('*', (req, res) => {
     })
 })
 
-const PORT = 3000
-app.listen(PORT, () => {
-    console.log(`Server is running on port http://localhost:${PORT}`)
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 })
