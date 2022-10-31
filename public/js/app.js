@@ -1,6 +1,6 @@
 console.log("client side js file")
 
-const weatherFrom = document.querySelector('from')
+const weatherFrom = document.querySelector('form')
 const search = document.querySelector('input')
 const msgOne = document.querySelector('#msg-1')
 const msgTwo = document.querySelector('#msg-2')
@@ -8,10 +8,8 @@ const msgTwo = document.querySelector('#msg-2')
 if (weatherFrom) {
     weatherFrom.addEventListener('submit', (e) => {
         e.preventDefault()
-        console.log("-----------")
 
         const location = search.value;
-        console.log(location)
         msgOne.textContent = 'Loading.....'
         msgTwo.textContent = ''
 
@@ -21,8 +19,8 @@ if (weatherFrom) {
                     if (data.error) {
                         msgOne.textContent = data.error
                     } else {
-                        msgOne.textContent = data.location
-                        msgTwo.textContent = data.forecast.temperature
+                        msgOne.textContent = `Your Location is ${data.location}`
+                        msgTwo.textContent = `your temperature like ${data.forecast.temperature}, you feelslike ${data.forecast.feelslike} and your weather like ${data.forecast.weather_descriptions}`
                     }
                 })
             })
